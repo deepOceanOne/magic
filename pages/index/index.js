@@ -36,7 +36,7 @@ Page({
         year:"",
         touch_start:0,
         touch_end:0,
-        todos:[{"content":"1111"},{"content":"2222"}]
+        todos:[{"content":"空空如也，长按右下角红色按钮添加日程安排吧"},{"content":"tips:长按一秒为添加第二天的日程，长按两秒为添加第三天的日程安排，以此类推。。。。。。"}]
     },
 
 
@@ -94,13 +94,15 @@ Page({
         this.setData({ month : month });
         this.setData({ year : year });
 
-        var todosfromstorage = wx.getStorageSync(month+'-'+(date+1));
-        this.setData({todos:todosfromstorage});
+        var todosfromstorage = wx.getStorageSync(month+'-'+(date));
+        if(todosfromstorage){
+          this.setData({todos:todosfromstorage});
+        }
     },
 
     onReady(){
 
-      showTips('长按红色按钮添加备忘......');
+      //showTips('长按红色按钮添加备忘......');
      
     },
     

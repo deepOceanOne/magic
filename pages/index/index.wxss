@@ -38,7 +38,17 @@
    display: block;
 }
 
+.todo-container .content{
+  font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #e6e6e6;
+  font-size: 1.2em;
+  padding: 6px 9px;
+  border-bottom:1px solid #E7E3E3;
+}
 
+.todo-container .content:first-child{
+  border-top:1px solid #E7E3E3;
+}
 
 .add-button{
   position:absolute;

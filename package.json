@@ -1,7 +1,7 @@
 {
-  "name": "MagicPro",
+  "name": "TodayPro",
   "version": "1.0.0",
-  "description": "日程规划小程序",
+  "description": "今天做什么，有这个小程序就足够啦",
   "main": "app.js",
   "repository": {
     "type": "git",
