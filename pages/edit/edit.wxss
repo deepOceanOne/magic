@@ -1,0 +1,58 @@
+
+
+.input-panel {
+    position: absolute;
+    height: 100rpx;
+    width: 100%;
+    padding: 13rpx 20rpx 0;
+    background: #f5f5f7;
+    border-top:#d7d7d9 1rpx solid;
+    box-sizing: border-box;
+    display: flex;
+    bottom: 0px;
+    right: 0px;
+}
+.pic-icon {
+    width: 60rpx;
+    height: 44rpx;
+    margin: 15rpx 20rpx 0 0;
+    background:url(http://imgcache.qq.com/open_proj/proj_qcloud_v2/wechat_mc/pic/send.svg);
+    display: none;
+}
+.send-input {
+    flex: 1;
+    height: 72rpx;
+    background: #fff;
+    border:#ddd 1rpx solid;
+    border-radius: 3px;
+    margin-right: 20rpx;
+    box-sizing: border-box;
+    padding: 0 20rpx;
+}
+
+.send-btn {
+    width: 160rpx;
+    height: 72rpx;
+    line-height: 72rpx;
+    background-color: #a0e75a;
+    font-size: 28rpx;
+}
+
+.todo-container {
+    display: inline-block;
+    vertical-align: top;
+    padding: 50rpx;
+   
+}
+
+.todo-container .content {
+    border: #ccc 2rpx solid;
+    border-radius: 4px;
+    background: #fff;
+    font-size: 36rpx;
+    line-height: 36rpx;
+    padding: 20rpx;
+    position: absolute;
+    right: 30rpx;
+     background-color: #a0e75a;
+}

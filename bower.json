@@ -1,0 +1,29 @@
+{
+  "name": "MagicPro",
+  "description": "planner for tomorrow",
+  "main": "app.js",
+  "authors": [
+    "teslar"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "qcloud",
+    "wechat",
+    "weapp",
+    "demo",
+    "sdk",
+    "plan",
+    "schedule"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "qcloud-weapp-client-sdk": "*"
+  }
+}

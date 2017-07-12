@@ -1,0 +1,15 @@
+
+<view class="edit-panal">
+  <view wx:for="{{todos}}" wx:for-item="todo" wx:key="id" id="{{message.id}}">
+      <view class="todo-container">
+          <view class="content">{{todo.content}}</view>
+      </view>
+  </view>
+
+  <view class="input-panel">
+        <button class="pic-icon"></button>
+        <input type="text" value="{{inputContent}}" bindchange="changeInputContent" class="send-input"></input>
+        <button bindtap="sendTodo" class="send-btn">写好了</button>
+  </view>
+
+</view>

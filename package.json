@@ -1,0 +1,13 @@
+{
+  "name": "MagicPro",
+  "version": "1.0.0",
+  "description": "日程规划小程序",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [],
+  "author": "CFETeam",
+  "license": "MIT"
+}
