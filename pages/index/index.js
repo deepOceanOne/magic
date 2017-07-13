@@ -103,7 +103,7 @@ Page({
     onReady(){
 
       //showTips('长按红色按钮添加备忘......');
-     
+      
     },
     
     /**
@@ -139,24 +139,14 @@ Page({
       // 根据按下的秒数，来换算成实际的天数，在相应的月份和天数之后进行记录
       var touchTime = this.data.touch_end - this.data.touch_start;
       var touchTime2Day = Math.round(touchTime / 1000 + 1);
-      console.log(" after  " +touchTime2Day + '  days '); 
+      //console.log(" after  " +touchTime2Day + '  days '); 
       var month2Storage = 0;
       var days2Storage = 0;
       var _daysofmonth = this.daysOfMonth(this.data.year,this.data.month);
       month2Storage =  ((this.data.date+touchTime2Day)>_daysofmonth)? this.data.month+2:this.data.month;
       days2Storage = (month2Storage == this.data.month)? this.data.date+touchTime2Day:this.data.date+touchTime2Day-_daysofmonth;
-      console.log("month2Storage is :" + month2Storage);
-      console.log("days2Storage is :" + days2Storage);
-
-      wx.getStorage({
-        key: month2Storage+ '-' + days2Storage,
-        success: function (res) {
-          console.log(" todo in storage is : "+res.data);
-        },
-      });
-
-     
-      
+      //console.log("month2Storage is :" + month2Storage);
+      //console.log("days2Storage is :" + days2Storage);
 
       wx.navigateTo({
         url: '../edit/edit?key='+month2Storage+'-'+days2Storage,
@@ -167,26 +157,26 @@ Page({
       });
       
 
-      console.log(this.data.month);
+      //console.log(this.data.month);
     
     },
 
     touchstart(e){
-      console.log("touch start");
+      //console.log("touch start");
       let that = this;
       that.setData({
         touch_start: e.timeStamp
       });
-      console.log(e.timeStamp + '- touch-start'); 
+      //console.log(e.timeStamp + '- touch-start'); 
     },
 
     touchend(e){
-      console.log("touch end");
+      //console.log("touch end");
       let that = this;
       that.setData({
         touch_end: e.timeStamp
       });
-      console.log(e.timeStamp + '- touch-end');
+      //console.log(e.timeStamp + '- touch-end');
     },
     
    

@@ -4,7 +4,7 @@ Page({
    * 聊天室使用到的数据，主要是消息集合以及当前输入框的文本
    */
   data: {
-    inputContent: '写在你想要在未来做的事',
+    inputContent: '',
     lastTodoId: 'none',
     key:"",
     todos: [{"content":'开启美好的新一天！'}],
@@ -15,6 +15,10 @@ Page({
     this.setData({
       key:options.key
     });
+    var todosfromstorage = wx.getStorageSync(options.key);
+    if(todosfromstorage){
+      this.setData({todos:todosfromstorage});
+    }
     wx.setNavigationBarTitle({
       title: 'Todos in  '+options.key,
       success: function(res) {},

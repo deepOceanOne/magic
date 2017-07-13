@@ -7,13 +7,10 @@
   ],
   "license": "MIT",
   "keywords": [
-    "qcloud",
-    "wechat",
-    "weapp",
-    "demo",
-    "sdk",
-    "plan",
-    "schedule"
+    "today",
+    "schedule",
+    "calender",
+    "plan"
   ],
   "homepage": "",
   "ignore": [
