@@ -1,3 +1,5 @@
+
+
 Page({
 
   /**
@@ -19,18 +21,22 @@ Page({
     if(todosfromstorage){
       this.setData({todos:todosfromstorage});
     }
-    wx.setNavigationBarTitle({
-      title: 'Todos in  '+options.key,
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
-    })
+    
   },
 
   onReady() {
     if (!this.pageReady) {
       this.pageReady = true;
     }
+  },
+
+  onShow(){
+    wx.setNavigationBarTitle({
+      title: 'Todos in  ' + this.data.key,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
   },
 
   /**
@@ -87,8 +93,13 @@ Page({
   },
 
   sendTodo(){
+    if (!this.data.inputContent){
+      // 写完就返回～  发送空白内容进行返回操作
+      wx.navigateBack();
+    }
     this.pushTodo(this.createTodo(this.data.inputContent));
     this.setData({ inputContent: '' });
+
   }
 
 

@@ -1,12 +1,12 @@
 {
-    "pages": [
-        "pages/index/index",
-        "pages/edit/edit"
-    ],
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#333",
-
-        "navigationBarTextStyle": "white"
-    }
+  "pages": [
+    "pages/index/index",
+    "pages/edit/edit",
+    "pages/unlock/unlock"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#333",
+    "navigationBarTextStyle": "white"
+  }
 }

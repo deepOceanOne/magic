@@ -7,6 +7,7 @@ var qcloud = require('../../vendor/qcloud-weapp-client-sdk/index');
 
 // 引入配置
 var config = require('../../config');
+const AV = require('../../libs/av-weapp-min.js');
 
 // 显示按钮使用提示
 var showTips = text => wx.showToast({
@@ -36,7 +37,8 @@ Page({
         year:"",
         touch_start:0,
         touch_end:0,
-        todos:[{"content":"空空如也，长按右下角红色按钮添加日程安排吧"},{"content":"tips:长按一秒为添加第二天的日程，长按两秒为添加第三天的日程安排，以此类推。。。。。。"}]
+        todos:[{"content":"空空如也，长按右下角红色按钮添加日程安排吧"},{"content":"tips:长按一秒为添加第二天的日程，长按两秒为添加第三天的日程安排，以此类推。。。。。。"}],
+        todos_unlocked:[{}]
     },
 
 
@@ -80,6 +82,8 @@ Page({
             break;    
         }
 
+        
+
         month = d.getMonth()+1;
 
         // set time 
@@ -98,14 +102,31 @@ Page({
         if(todosfromstorage){
           this.setData({todos:todosfromstorage});
         }
+
+        AV.init({
+          appId: config.secret.lean.appId,
+          appKey: config.secret.lean.appKey,
+        });
+
     },
 
     onReady(){
 
       //showTips('长按红色按钮添加备忘......');
-      
+    
+      this.test_read();
+
     },
     
+    onShow(){
+      wx.setNavigationBarTitle({
+        title: 'TodayPro',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    },
+
     /**
      * 点击「登录」按钮，测试登录功能
      */
@@ -113,12 +134,34 @@ Page({
        
     },
 
+    test_read(){
+      var query = new AV.Query('db_0987');
+      query.select("content");
+      var query_list = query.find();
+      for( var todo in query_list){
+          
+          console.log(todo);
+      }
+      //console.log(this.todos_unlocked.content);
+
+    },
+
+    test_write(){
+      var testobj = AV.Object.extend("db_0987");
+      var test = new testobj();
+      test.save({
+        content:"Hello jxc!"
+      }).then(function(onject){
+        alert("");
+      })
+    },
+
     /**
      * 点击「清除会话」按钮
      */
     clearSession() {
         // 清除保存在 storage 的会话信息
-        qcloud.clearSession();
+        //qcloud.clearSession();
         showSuccess('会话已清除');
     },
 
