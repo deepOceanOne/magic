@@ -1,12 +1,14 @@
 <!--pages/unlock/unlock.wxml-->
 <view class="div">
-  <view class="h3">
+  <view class="h3">enter code
+  <form class="inputform">
     <view class="codeinput">
       <input class="input" autofocus="" maxlength="1" placeholder="#" type="password"></input>
       <input class="input" autofocus="" maxlength="1" placeholder="#" type="password"></input>
       <input class="input" autofocus="" maxlength="1" placeholder="#" type="password"></input>
       <input class="input" autofocus="" maxlength="1" placeholder="#" type="password"></input>
     </view>
+  </form>
   </view>
 </view>
-<text>pages/unlock/unlock.wxml</text>
+

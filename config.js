@@ -19,7 +19,17 @@ var config = {
 
         // 测试的信道服务地址
         tunnelUrl: `https://${host}/tunnel`,
+    },
+
+    secret : {
+      //leancloud storage use
+      lean: {
+        appId: 'ti5iIHS3pqWnpweftRG3R9Ui-gzGzoHsz',
+
+        appKey: 'Wr7hu3fqrUSclqxeJcoq5Bba',
+      }
     }
 };
+
 
 module.exports = config;

@@ -14,7 +14,7 @@
     </view>
 
   <view class="slide-wrap">
-    <view class="slide">Slide To Unlock friend's Today</view>
+    <view class="slide">Slide To Unlock Friend's Today </view>
   </view> 
     <button bindtap="afterButtonClicked"  bindtouchstart="touchstart" bindtouchend="touchend" class="add-button">
         +

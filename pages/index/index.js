@@ -191,8 +191,14 @@ Page({
       //console.log("month2Storage is :" + month2Storage);
       //console.log("days2Storage is :" + days2Storage);
 
+/*
       wx.navigateTo({
         url: '../edit/edit?key='+month2Storage+'-'+days2Storage,
+      });
+*/
+      // temp use
+      wx.navigateTo({
+        url: '../unlock/unlock'
       });
 
       wx.setNavigationBarTitle({

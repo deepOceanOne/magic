@@ -50,23 +50,36 @@
   border-top:1px solid #E7E3E3;
 }
 
+.slide{
+    background: -webkit-gradient(linear,left top,right top,color-stop(0, #4d4d4d),color-stop(0.4, #4d4d4d),color-stop(0.5, white),color-stop(0.6, #4d4d4d),color-stop(1, #4d4d4d)); 
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 6s infinite;
+  
+}
+
 
 .slide{
-  position: absolute;
-  bottom: 60px;
-  
-  background: linear-gradient(to right, rgb(106,200,193) 41%, darken(#EDC, 10%) 49%,#EDC, darken(#EDC, 10%) 52%, rgb(106,200,193) 60%);
-  
+   position: absolute;
+   bottom: 60px;
+   font-size: 120%;
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+   font-weight: 200;
+   -webkit-text-size-adjust:0.70; 
 }
 
 @keyframes shimmer {
     0% { 
-      background-position-x: 100%; 
+      background-position: -300px 0; 
     }
     100% { 
-      background-position-x: 0;
+      background-position:100% 0;
     }
 }
+
+
 
 .add-button{
   position:absolute;
