@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/edit/edit",
-    "pages/unlock/unlock"
+    "pages/unlock/unlock",
+    "pages/datepicker/datepicker"
   ],
   "window": {
     "backgroundTextStyle": "light",

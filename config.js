@@ -22,12 +22,13 @@ var config = {
     },
 
     secret : {
-      //leancloud storage use
-      lean: {
-        appId: 'ti5iIHS3pqWnpweftRG3R9Ui-gzGzoHsz',
+      
+      //bomb storage use
+      bomb: {
+        appId: '870f77c1d1cbb1b0efb9a9c857049a9f',
 
-        appKey: 'Wr7hu3fqrUSclqxeJcoq5Bba',
-      }
+        apikey: '34fb79ded1826ed0df1c4784844581c4',
+      },
     }
 };
 

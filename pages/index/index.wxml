@@ -5,6 +5,7 @@
         <view  class="time">{{time}}</view>
     </view> 
     
+ <scroll-view scroll-y="true" style="height: 40%">   
     <view class="Todo">
       <view wx:for="{{todos}}" wx:for-item="todo" wx:key="id" id="{{message.id}}">
         <view class="todo-container">
@@ -12,12 +13,20 @@
         </view>
       </view>
     </view>
+ </scroll-view>   
 
   <view class="slide-wrap">
-    <view class="slide">Slide To Unlock Friend's Today </view>
-  </view> 
-    <button bindtap="afterButtonClicked"  bindtouchstart="touchstart" bindtouchend="touchend" class="add-button">
+    <view class="slide">Slide & Unlock Friend's Today </view>
+    <view class="slidetips"> 》》》》》》》》》》》》》》》</view>
+     <button bindtap="afterButtonClicked"  bindtouchstart="touchstart" bindtouchend="touchend" class="add-button" bindtouchmove="moved" style="left:{{leftpadding}}rpx;z-index:2;">
         +
     </button>
+
+    <button  class="add-button2"  style="left:{{leftpadding}}rpx;z-index:1;">
+        +
+    </button>
+  </view> 
+    
+   
 
 </view>

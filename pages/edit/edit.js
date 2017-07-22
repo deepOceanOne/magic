@@ -1,4 +1,5 @@
-
+var Bmob = require('../../libs/bmob.js');
+var config = require('../../config');
 
 Page({
 
@@ -9,11 +10,15 @@ Page({
     inputContent: '',
     lastTodoId: 'none',
     key:"",
-    todos: [{"content":'开启美好的新一天！'}],
-    msgUuid:{"next":0,}
+    todos: [{"content":'美好的一天开始啦～'}],
+    msgUuid:{"next":0,},
+
   },
 
   onLoad: function (options) {
+
+    Bmob.initialize(config.secret.bomb.appId, config.secret.bomb.apikey);
+
     this.setData({
       key:options.key
     });
@@ -64,7 +69,7 @@ Page({
       data: todos,
     });
 
-    console.log('setstorage done...');
+    //console.log('setstorage done...');
 
   },
 
@@ -90,15 +95,62 @@ Page({
    */
   pushTodo(todo) {
     this.updateTodos(todos => todos.push(todo));
+
+    // upload and update 
+    var Diary = Bmob.Object.extend("today");
+    var query = new Bmob.Query(Diary);
+    var pass = wx.getStorageSync("mypass");
+    console.log("pass is : "+pass);
+    if(pass){
+        query.equalTo("code", pass);
+        query.equalTo("day", this.data.key);
+        var context = this;
+        query.find({
+          success: function (results) {
+            //console.log("共查询到 " + results.length + " 条记录");
+            // 循环处理查询到的数据
+            if (results.length != 0) {
+              // then update it 
+              results[0].unset("content");
+              var tmptodos = context.data.todos;
+              tmptodos.forEach(function (val) {
+                results[0].add("content", val.content);
+              });
+              results[0].save();
+            }else{
+              // set a new one then 
+              var diary = new Diary();
+              diary.set("code", pass);
+              diary.set("day", context.data.key);
+              diary.set("mediatype", "text");
+              var tmptodos = context.data.todos;
+              tmptodos.forEach(function (val) {
+                diary.add("content", val.content);
+              })
+              //添加数据，第一个入口参数是null
+              diary.save();
+            }
+
+          },
+          error: function (error) {
+            console.log("查询失败...");
+          }
+        });
+    }
+
+
+
   },
 
   sendTodo(){
     if (!this.data.inputContent){
       // 写完就返回～  发送空白内容进行返回操作
+      // 返回主页
       wx.navigateBack();
+    }else{
+      this.pushTodo(this.createTodo(this.data.inputContent));
+      this.setData({ inputContent: '' });
     }
-    this.pushTodo(this.createTodo(this.data.inputContent));
-    this.setData({ inputContent: '' });
 
   }
 

@@ -1,3 +1,4 @@
+
 .calender-object {
     width: 100%;
     height: 100%;
@@ -5,34 +6,34 @@
     background:linear-gradient(300deg,rgb(106,200,193)0%,rgb(160,208,125)100%);
     background-size: cover;
     color:#fff;
-    padding:15px;
+    padding:35rpx;
     font-family:"Roboto Condensed";
     position: fixed;
 }
 .calender-object .date .date{
-   font-weight: 400;
-   font-size: 86px;
+   font-weight: 200;
+   font-size: 216rpx;
    position:relative;
-   top:20px;
-   left:165px;
+   top:40rpx;
+   left:385rpx;
    color: #7cbf93;
 }
 
 .calender-object .date .day{
    position: relative;
    text-transform: relative;
-   top:-90px;
-   left:0px;
+   top:-200rpx;
+   left:0rpx;
    font-weight: bold;
-   font-size: 28px;
+   font-size: 65rpx;
    display: block;
 }
 
 .calender-object .date .time{
    font-weight: normal;
-   font-size: 22px;
+   font-size: 70rpx;
    position:relative;
-   top:-80px;
+   top:-170rpx;
    left:0px;
    width: 100%;
    display: block;
@@ -42,12 +43,12 @@
   font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #e6e6e6;
   font-size: 1.2em;
-  padding: 6px 9px;
-  border-bottom:1px solid #E7E3E3;
+  padding: 20rpx 5rpx;
+  border-bottom:1rpx solid #E7E3E3;
 }
 
 .todo-container .content:first-child{
-  border-top:1px solid #E7E3E3;
+  border-top:1rpx solid #E7E3E3;
 }
 
 .slide{
@@ -56,25 +57,55 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: shimmer 6s infinite;
+    animation: shimmer-verse 6s infinite;
   
 }
 
 
 .slide{
    position: absolute;
-   bottom: 60px;
+   bottom: 150rpx;
    font-size: 120%;
    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
    font-weight: 200;
    -webkit-text-size-adjust:0.70; 
+   left:170rpx;
+}
+
+.slidetips{
+   position: absolute;
+   bottom: 100rpx;
+   font-size: 100%;
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+   font-weight: 200;
+   -webkit-text-size-adjust:0.70; 
+   color: grey;
+   left:170rpx;
+}
+
+.slidetips{
+   background: -webkit-gradient(linear,left top,right top,color-stop(0, #4d4d4d),color-stop(0.4, #4d4d4d),color-stop(0.5, white),color-stop(0.6, #4d4d4d),color-stop(1, #4d4d4d)); 
+   -moz-background-clip: text;
+   -webkit-background-clip: text;
+   background-clip: text;
+   -webkit-text-fill-color: transparent;
+   animation: shimmer 6s infinite;
 }
 
 @keyframes shimmer {
     0% { 
-      background-position: -300px 0; 
+      background-position: -600rpx 0; 
     }
     100% { 
+      background-position:100% 0;
+    }
+}
+
+@keyframes shimmer-verse {
+    100% { 
+      background-position: -600rpx 0; 
+    }
+    0% { 
       background-position:100% 0;
     }
 }
@@ -82,18 +113,27 @@
 
 
 .add-button{
-  position:absolute;
-  right:40px;
-  bottom:40px;
+  position:absolute;  
+  bottom:90rpx;
   background: #FC3768;
-  height:60px;
-  width:60px;
+  height:120rpx;
+  width:120rpx;
   border-radius: 50%;
   text-align: center;
-  padding-top: 17px;
+  padding-top: 14rpx;
   color:white;
-  font-size: 50px;
-  font-weight: 300;
-  cursor:pointer;
+  font-weight: 400; 
 }
 
+.add-button2{
+  position:absolute;  
+  bottom:90rpx;
+  background: grey;
+  height:120rpx;
+  width:120rpx;
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 14rpx;
+  color:white;
+  font-weight: 400; 
+}

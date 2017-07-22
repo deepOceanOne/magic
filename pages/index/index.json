@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "TodayPro"
+  "navigationBarTitleText": "TodayPro",
+  "enablePullDownRefresh":true
 }

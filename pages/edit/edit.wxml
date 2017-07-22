@@ -1,10 +1,13 @@
 
 <view class="edit-panal">
-  <view wx:for="{{todos}}" wx:for-item="todo" wx:key="id" id="{{message.id}}">
-      <view class="todo-container">
-          <view class="content">{{todo.content}}</view>
-      </view>
-  </view>
+
+  <scroll-view scroll-y="true" style="height: 200%">   
+    <view wx:for="{{todos}}" wx:for-item="todo" wx:key="id" id="{{message.id}}">
+        <view class="todo-container">
+            <view class="content">{{todo.content}}</view>
+        </view>
+    </view>
+  </scroll-view>
 
   <view class="input-panel">
         <button class="pic-icon"></button>

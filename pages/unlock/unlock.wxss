@@ -1,4 +1,5 @@
 /* pages/unlock/unlock.wxss */
+
 .div{
   font-family: "Source Sans Pro", sans-serif;
   text-align: center;
@@ -9,7 +10,7 @@
   left:50%;
   background: rgb(106,200,193);
   background:linear-gradient(300deg,rgb(106,200,193)0%,rgb(160,208,125)100%);
-  height:1030rpx;
+  height:1182rpx;
   background-size: cover;
 }
 
@@ -17,6 +18,7 @@
 .h3{
   margin-bottom: 1em;
   line-height: 36px;
+  font-size: 40rpx;
 }
 
 .codeinput{
@@ -27,12 +29,12 @@
 .input{
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 200;
-  width: 110rpx;
+  width: 120rpx;
   height: 50px;
   border: 1px solid whitesmoke;
   display: block;
   float: left;
-  margin-right: 8%;
+  margin-right: 25rpx;
   margin-top: 23%;
   outline: 0;
   font-size: 23px;
@@ -55,4 +57,9 @@
    border-color: #0091FF;
 }
 
-
+.submitbtn{
+  position: absolute;
+  width: 570rpx;
+  margin-top: 300rpx;
+  
+}

@@ -9,8 +9,8 @@
     border-top:#d7d7d9 1rpx solid;
     box-sizing: border-box;
     display: flex;
-    bottom: 0px;
-    right: 0px;
+    bottom: 0rpx;
+    right: 0rpx;
 }
 .pic-icon {
     width: 60rpx;
@@ -54,5 +54,5 @@
     padding: 20rpx;
     position: absolute;
     right: 30rpx;
-     background-color: #a0e75a;
+    background-color: #a0e75a;
 }
