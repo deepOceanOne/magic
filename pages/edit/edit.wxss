@@ -1,4 +1,8 @@
-
+.edit-panel{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
 
 .input-panel {
     position: absolute;
@@ -42,7 +46,6 @@
     display: inline-block;
     vertical-align: top;
     padding: 50rpx;
-   
 }
 
 .todo-container .content {
@@ -55,4 +58,8 @@
     position: absolute;
     right: 30rpx;
     background-color: #a0e75a;
+}
+
+.scroll{
+  position: absolute;
 }

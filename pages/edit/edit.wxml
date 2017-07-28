@@ -1,7 +1,7 @@
 
 <view class="edit-panal">
 
-  <scroll-view scroll-y="true" style="height: 200%">   
+  <scroll-view class="scroll" scroll-y="true" style="height: 100%">   
     <view wx:for="{{todos}}" wx:for-item="todo" wx:key="id" id="{{message.id}}">
         <view class="todo-container">
             <view class="content">{{todo.content}}</view>

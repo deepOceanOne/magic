@@ -3,10 +3,10 @@
   <view class="h3">{{tips}}
   <form class="inputform">
     <view class="codeinput">
-      <input class="input" id="num1" autofocus="" maxlength="1" placeholder="#" type="password" bindinput="oninput1" focus="{{focus1}}"></input>
-      <input class="input" id="num2" autofocus="" maxlength="1" placeholder="#" type="password" bindinput="oninput2" focus="{{focus2}}"></input>
-      <input class="input" id="num3" autofocus="" maxlength="1" placeholder="#" type="password" bindinput="oninput3" focus="{{focus3}}"></input>
-      <input class="input" id="num4" autofocus="" maxlength="1" placeholder="#" type="password" bindinput="oninput4" focus="{{focus4}}"></input>
+      <input class="input" id="num1" autofocus="" maxlength="1" placeholder="#" type="number" bindinput="oninput1" focus="{{focus1}}"></input>
+      <input class="input" id="num2" autofocus="" maxlength="1" placeholder="#" type="number" bindinput="oninput2" focus="{{focus2}}"></input>
+      <input class="input" id="num3" autofocus="" maxlength="1" placeholder="#" type="number" bindinput="oninput3" focus="{{focus3}}"></input>
+      <input class="input" id="num4" autofocus="" maxlength="1" placeholder="#" type="number" bindinput="oninput4" focus="{{focus4}}"></input>
     </view>
   </form>
    </view>

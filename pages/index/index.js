@@ -30,7 +30,7 @@ Page({
     data: {      
         day: "",
         date: "",
-        time: "",
+        time: " ❤️🐨  ",
         year: "",
         month: "",  
         touch_end: 0,
@@ -42,7 +42,8 @@ Page({
         loginUrl: config.service.loginUrl,
         requestUrl: config.service.requestUrl,   
         unlock_code:"0000", // default code is 0000,which is safe 
-        todos: [{ "content": "空空如也，长按右下角红色按钮添加日程安排吧" }, { "content": "tips:长按一秒为添加第二天的日程，长按两秒为添加第三天的日程安排，以此类推。。。。。。" }, { "content": "tips again:右滑按钮绑定朋友的日程，如果闹掰了请重新绑定输入安全气囊密码：0000" }]
+        todos_local: [{ "content": "空空如也，长按右下角红色按钮添加日程安排吧" }, { "content": "tips:长按一秒为添加第二天的日程，长按两秒为添加第三天的日程安排，以此类推。。。。。。" }, { "content": "tips again:右滑按钮绑定朋友的日程，如果闹掰了请重新绑定输入安全气囊密码：0000" }],
+        todos:[],
     },
 
     getTimeAndTodo(){
@@ -88,7 +89,9 @@ Page({
       var mins = d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes();
       time = hours + " : " + mins;
 
-      this.setData({ time: time });
+      /*  no need for this time any more 
+        this.setData({ time: time });
+      */
       this.setData({ day: day });
       this.setData({ date: date });
       this.setData({ month: month });
@@ -96,7 +99,7 @@ Page({
 
       var todosfromstorage = wx.getStorageSync(month + '-' + (date));
       if (todosfromstorage) {
-        this.setData({ todos: todosfromstorage });
+        this.setData({ todos_local: todosfromstorage });
       }
 
     },
@@ -113,35 +116,18 @@ Page({
           fail:function(){
             wx.setStorageSync("pass", "0000");
           }
-        })
+        });
+
+        this.settodos();
+
 
     },
 
     onReady(){
 
-      //showTips('长按红色按钮添加备忘......');
-    
-      //this.test_read();
-      /* wx login 
-      wx.login({
-        success:function(res){
-           console.log(res.code)
-          // use res.code to identify 
-        }
-      });
-      */
+      this.setData({ unlock_code: wx.getStorageSync("pass") });
+      this.getTodoFromFriends(this.data.unlock_code);
 
-      // location application 
-      /*
-      wx.getLocation({
-        success: function(res) {
-          console.log(res.latitude);
-          console.log(res.longitude);
-        },
-      })
-      */
-
- 
     },
 
     getTodoFromFriends(pass){
@@ -160,7 +146,10 @@ Page({
               todos_unlocked.push({ "content": val });
             });
             //console.log(todos_unlocked);
-            context.setData({ todos: context.data.todos.concat(todos_unlocked) });
+            context.setData({ todos_unlocked: todos_unlocked });
+            // refresh the todos 
+            context.setData({ todos : context.data.todos_local.concat(context.data.todos_unlocked)});
+
           }
 
         },
@@ -183,9 +172,10 @@ Page({
         leftpadding : 30
       });
 
-
-      this.setData({unlock_code: wx.getStorageSync("pass")});
+      // add refresh 
+      this.setData({ unlock_code: wx.getStorageSync("pass") });
       this.getTodoFromFriends(this.data.unlock_code);
+
 
     },
 
@@ -295,15 +285,19 @@ Page({
     },
 
     onPullDownRefresh(){
-      this.getTime();
+      
+      this.getTimeAndTodo();
+      this.getTodoFromFriends(this.data.unlock_code);
       // 下拉刷新可以 看到 近来几天的日程 待实现
       // ......
-
       wx.stopPullDownRefresh();
-      // refresh the time to display 
-      var context = this; 
+      //this.settodos();
+
     },
 
+    settodos(){
+      this.setData({ todos: this.data.todos_local.concat(this.data.todos_unlocked) });
+    }
     
      
  
