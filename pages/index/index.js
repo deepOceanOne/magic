@@ -42,8 +42,8 @@ Page({
         loginUrl: config.service.loginUrl,
         requestUrl: config.service.requestUrl,   
         unlock_code:"0000", // default code is 0000,which is safe 
-        todos_local: [{ "content": "空空如也，长按右下角红色按钮添加日程安排吧" }, { "content": "tips:长按一秒为添加第二天的日程，长按两秒为添加第三天的日程安排，以此类推。。。。。。" }, { "content": "tips again:右滑按钮绑定朋友的日程，如果闹掰了请重新绑定输入安全气囊密码：0000" }],
-        todos:[],
+        todos_local: [],
+        todos: [{ "content": "空空如也，长按右下角红色按钮添加日程安排吧" }, { "content": "tips:长按一秒为添加第二天的日程，长按两秒为添加第三天的日程安排，以此类推。。。。。。" }, { "content": "tips again:右滑按钮绑定朋友的日程，如果闹掰了请重新绑定输入安全气囊密码：0000" }],
     },
 
     getTimeAndTodo(){
@@ -100,6 +100,8 @@ Page({
       var todosfromstorage = wx.getStorageSync(month + '-' + (date));
       if (todosfromstorage) {
         this.setData({ todos_local: todosfromstorage });
+        // make sure local data is first to be seen 
+        this.setData({ todos: this.data.todos_local.concat(this.data.todos_unlocked) });
       }
 
     },
@@ -118,16 +120,12 @@ Page({
           }
         });
 
-        this.settodos();
-
 
     },
 
     onReady(){
-
       this.setData({ unlock_code: wx.getStorageSync("pass") });
       this.getTodoFromFriends(this.data.unlock_code);
-
     },
 
     getTodoFromFriends(pass){
@@ -145,13 +143,10 @@ Page({
             results[0].get('content').forEach(function (val) {
               todos_unlocked.push({ "content": val });
             });
-            //console.log(todos_unlocked);
-            context.setData({ todos_unlocked: todos_unlocked });
-            // refresh the todos 
-            context.setData({ todos : context.data.todos_local.concat(context.data.todos_unlocked)});
-
-          }
-
+          }  
+          context.setData({ todos_unlocked: todos_unlocked });
+          // refresh the todos 
+          context.setData({ todos: context.data.todos_local.concat(context.data.todos_unlocked) });
         },
         error: function (error) {
           console.log("查询失败...");
@@ -295,10 +290,5 @@ Page({
 
     },
 
-    settodos(){
-      this.setData({ todos: this.data.todos_local.concat(this.data.todos_unlocked) });
-    }
-    
-     
- 
+
 });
