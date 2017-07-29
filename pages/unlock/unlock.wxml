@@ -2,7 +2,7 @@
 <view class="div">
   <view class="h3">{{tips}}
   <form class="inputform">
-    <view class="codeinput">
+    <view class="codeinput" style="display:flex; flex-direction:raw;justify-content:space-around;">
       <input class="input" id="num1" autofocus="" maxlength="1" placeholder="#" type="number" bindinput="oninput1" focus="{{focus1}}"></input>
       <input class="input" id="num2" autofocus="" maxlength="1" placeholder="#" type="number" bindinput="oninput2" focus="{{focus2}}"></input>
       <input class="input" id="num3" autofocus="" maxlength="1" placeholder="#" type="number" bindinput="oninput3" focus="{{focus3}}"></input>

@@ -32,9 +32,6 @@
   width: 120rpx;
   height: 50px;
   border: 1px solid whitesmoke;
-  display: block;
-  float: left;
-  margin-right: 25rpx;
   margin-top: 23%;
   outline: 0;
   font-size: 23px;
@@ -44,9 +41,6 @@
   cursor: pointer;
 }
 
-.input:last-child{
-  margin-right: 0;
-}
 
 .input:hover{
   color:  #9B9B9B;

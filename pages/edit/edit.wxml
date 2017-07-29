@@ -7,6 +7,11 @@
             <view class="content">{{todo.content}}</view>
         </view>
     </view>
+    <view wx:for="{{recoms}}" wx:for-item="recom" wx:key="id" wx:for-index="key">
+        <view class="recom-container">
+            <view class="content" bindtap="clicked" id="{{key}}">{{recom.content}}</view>
+        </view>
+    </view>
   </scroll-view>
 
   <view class="input-panel">

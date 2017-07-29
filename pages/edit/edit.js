@@ -12,7 +12,8 @@ Page({
     key:"",
     todos: [{"content":'美好的一天开始啦～'}],
     msgUuid:{"next":0,},
-
+    // recommendation array 
+    recoms: [{ "content": '张瀚 熊孩子' }, { "content": '葛宇路回应央美处分' }, { "content": '30年后你的鞋都比你聪明' }],  
   },
 
   onLoad: function (options) {
@@ -152,6 +153,20 @@ Page({
       this.setData({ inputContent: '' });
     }
 
+  },
+
+  // recommendation area 
+  clicked(e){
+    // well , this recommended content is received 
+     var index_clicked = (e.currentTarget.id);
+     // remove it from the recom array 
+     var recom_array = this.data.recoms;
+     // first move the clicked one to local todo array 
+     this.pushTodo(this.createTodo(recom_array[index_clicked].content));
+     var item_moved = recom_array.splice(index_clicked,1);
+     this.setData({recoms:recom_array});
+     // end of remove effect 
+     
   }
 
 

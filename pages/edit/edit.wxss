@@ -60,6 +60,26 @@
     background-color: #a0e75a;
 }
 
+.recom-container {
+    display: inline-block;
+    vertical-align: top;
+    padding: 50rpx;
+}
+
+.recom-container .content {
+    border: #ccc 2rpx solid;
+    border-radius: 4px;
+    background: #fff;
+    -webkit-text-fill-color: #fff;
+    font-size: 36rpx;
+    line-height: 36rpx;
+    padding: 20rpx;
+    position: absolute;
+    right: 30rpx;
+    background-color: #886341;
+}
+
+
 .scroll{
   position: absolute;
 }

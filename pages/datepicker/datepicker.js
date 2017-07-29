@@ -1,19 +1,19 @@
 //index.js
 const date = new Date();
 const year = date.getFullYear();
-const month = date.getMonth() + 1;
+const month = date.getMonth() + 1 ;
 const dayInMonth = date.getDate();
 const dayInWeek = date.getDay();
 let selected = [year, month, dayInMonth];
 
-const week = [
-  { 'value': '周日', 'class': 'weekend' },
+const week = [ 
   { 'value': '周一', 'class': '' },
   { 'value': '周二', 'class': '' },
   { 'value': '周三', 'class': '' },
   { 'value': '周四', 'class': '' },
   { 'value': '周五', 'class': '' },
   { 'value': '周六', 'class': 'weekend' },
+  { 'value': '周日', 'class': 'weekend' },
 ];
 
 let isLeapYear = function (y) {
