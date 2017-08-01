@@ -42,8 +42,8 @@ Page({
         loginUrl: config.service.loginUrl,
         requestUrl: config.service.requestUrl,   
         unlock_code:"0000", // default code is 0000,which is safe 
-        todos_local: [],
-        todos: [{ "content": "空空如也，长按右下角红色按钮添加日程安排吧" }, { "content": "tips:长按一秒为添加第二天的日程，长按两秒为添加第三天的日程安排，以此类推。。。。。。" }, { "content": "tips again:右滑按钮绑定朋友的日程，如果闹掰了请重新绑定输入安全气囊密码：0000" }],
+        todos: [],
+        todos_local: [{ "content": "空空如也，长按左下角红色按钮添加日程安排吧" }, { "content": "tips again:右滑按钮绑定朋友的日程，如果闹掰了请重新绑定输入安全气囊密码：0000" }],
     },
 
     getTimeAndTodo(){
@@ -51,7 +51,8 @@ Page({
       var d = new Date();
       var date, day, year, time, month;
 
-      date = d.getDate() < 10 ? '0' + d.getDate() : d.getDate();
+      // to get same with datepicker later 
+      date = d.getDate();
       year = d.getFullYear();
       // set day 
       switch (d.getDay()) {
@@ -96,6 +97,8 @@ Page({
       this.setData({ date: date });
       this.setData({ month: month });
       this.setData({ year: year });
+
+      console.log("date is : "+date);
 
       var todosfromstorage = wx.getStorageSync(month + '-' + (date));
       if (todosfromstorage) {
@@ -219,19 +222,11 @@ Page({
       //console.log("days2Storage is :" + days2Storage);
 
       // if days are too long  use a datePicker
-      if (touchTime2Day>5){
+      // just jump to that 
         wx.navigateTo({
           url: '../datepicker/datepicker'
         });
-      }else{
-        wx.navigateTo({
-          url: '../edit/edit?key=' + month2Storage + '-' + days2Storage,
-        });
-      }
-
-      wx.setNavigationBarTitle({
-        title: 'Todo in  ' + month2Storage + '-' + days2Storage
-      });
+      
 
     },
 

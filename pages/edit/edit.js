@@ -13,7 +13,7 @@ Page({
     todos: [{"content":'美好的一天开始啦～'}],
     msgUuid:{"next":0,},
     // recommendation array 
-    recoms: [{ "content": '张瀚 熊孩子' }, { "content": '葛宇路回应央美处分' }, { "content": '30年后你的鞋都比你聪明' }],  
+    recoms: [],  
   },
 
   onLoad: function (options) {
@@ -166,7 +166,7 @@ Page({
      var item_moved = recom_array.splice(index_clicked,1);
      this.setData({recoms:recom_array});
      // end of remove effect 
-     
+
   }
 
 
