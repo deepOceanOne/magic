@@ -120,13 +120,12 @@ Page({
     //console.log("password : " + pass);
 
     if(this.data.tips == this.data.tips_first){
-      wx.setStorageSync("mypass", pass);
-
-      wx.navigateBack();
+      wx.setStorageSync("mypass", pass);     
     }else{
       wx.setStorageSync("pass", pass);
-      wx.navigateBack();
     }
+    this.setData({pass:[]});
+    wx.navigateBack();
 
   },
 
