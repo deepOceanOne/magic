@@ -31,6 +31,7 @@ Page({
         context.setData({ tips: context.data.tips_second });
       },
       fail: function () {
+        console.log("my pass is not set  .....");
         context.setData({ tips: context.data.tips_first });
       }
     })

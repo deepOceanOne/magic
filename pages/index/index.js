@@ -98,7 +98,7 @@ Page({
       this.setData({ month: month });
       this.setData({ year: year });
 
-      console.log("date is : "+date);
+      // console.log("date is : "+date);
 
       var todosfromstorage = wx.getStorageSync(month + '-' + (date));
       if (todosfromstorage) {
@@ -119,9 +119,27 @@ Page({
           key: 'pass',
           success: function(res) {},
           fail:function(){
+            console.log("pass not set....");
             wx.setStorageSync("pass", "0000");
           }
         });
+
+        wx.getSetting({
+          success(res) {
+            if (!res.authSetting['scope.userInfo']) {
+              wx.authorize({
+                scope: 'scope.userInfo',
+                success() {
+                  // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
+                  
+                },
+                fail(){
+                  console.log("failed to get user information...")
+                }
+              })
+            }
+          }
+        })
 
 
     },
@@ -162,7 +180,9 @@ Page({
       wx.setNavigationBarTitle({
         title: 'TodayPro',
         success: function (res) { },
-        fail: function (res) { },
+        fail: function (res) {
+          console.log("set NavigationBarTitle failed ...");
+         },
         complete: function (res) { },
       });
 

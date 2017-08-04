@@ -40,7 +40,9 @@ Page({
     wx.setNavigationBarTitle({
       title: 'Todos in  ' + this.data.key,
       success: function (res) { },
-      fail: function (res) { },
+      fail: function (res) { 
+        console.log("set NavigationBarTitle failed ...");
+      },
       complete: function (res) { },
     })
   },
@@ -167,7 +169,14 @@ Page({
      this.setData({recoms:recom_array});
      // end of remove effect 
 
+  },
+
+  // 如果有人提出了意见，智能识别出来并进行上传记录
+  isSuggestion(content){
+    // make judge if the content is a piece of advice
+    return false;
   }
+
 
 
 });
