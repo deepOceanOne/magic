@@ -6,13 +6,14 @@
     </view> 
     
  <scroll-view scroll-y="true" style="height: 40%">   
+    <audio src="{{audio.src}}" poster="{{audio.poster}}"  name="{{audio.name}}" author="{{audio.author}}" controls="true"></audio>
     <view class="Todo">
       <view wx:for="{{todos}}" wx:for-item="todo" wx:key="id" id="{{message.id}}">
         <view class="todo-container">
             <view class="content">{{todo.content}}</view>
         </view>
       </view>
-    </view>
+    </view>  
  </scroll-view>   
 
   <view class="slide-wrap">

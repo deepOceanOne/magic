@@ -44,7 +44,39 @@ Page({
         console.log("set NavigationBarTitle failed ...");
       },
       complete: function (res) { },
+    });
+
+    // show recommendations  
+    // the following code fragment may be not safe to be used 
+    var Diary = Bmob.Object.extend("New");
+    var query = new Bmob.Query(Diary);
+    var recom_array = [];
+    // query.equalTo  .... 
+    query.limit(3);
+    query.ascending("createAt");
+    var context = this;
+    query.find({
+      success:function(results){
+        for (var i = 0; i < results.length; i++) {
+          var object = results[i];
+          recom_array.push({"content" : object.get('title')});
+          object.destroy({
+            success: function (deleteObject) {
+              //console.log('删除日记成功');
+            },
+            error: function (object, error) {
+              console.log('删除日记失败');
+            }
+          });
+        }
+        context.setData({recoms:recom_array});
+      },
+      error:function(error){
+        console.log("query of recommendations error ... ");
+      }
     })
+
+
   },
 
   /**

@@ -44,6 +44,17 @@ Page({
         unlock_code:"0000", // default code is 0000,which is safe 
         todos: [],
         todos_local: [{ "content": "空空如也，长按左下角红色按钮添加日程安排吧" }, { "content": "tips again:右滑按钮绑定朋友的日程，如果闹掰了请重新绑定输入安全气囊密码：0000" }],
+        // for audio display 
+        audio:{
+          // audio_src
+          src: "",
+          // audio_poster
+          poster:"",
+          // audio_name
+          name:"",
+          // audio_author
+          author:""
+        },
     },
 
     getTimeAndTodo(){
@@ -147,7 +158,25 @@ Page({
     onReady(){
       this.setData({ unlock_code: wx.getStorageSync("pass") });
       this.getTodoFromFriends(this.data.unlock_code);
-    },
+
+      // get audio src 
+      var audio_array = ["src","poster","name","author"];
+      var context = this;
+      wx.request({
+        url: 'https://todaypro.leanapp.cn/music',
+        method:"GET",
+        success:function(res){         
+            context.setData({audio:res.data});          
+        },
+        fail:function(){
+          console.log("request music src failed...");
+        },
+        complete:function(){
+          // request completed ... 
+        },
+      });
+
+    },  
 
     getTodoFromFriends(pass){
       var todos_unlocked = [];
