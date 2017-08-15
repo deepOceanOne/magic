@@ -4,7 +4,7 @@
   <scroll-view class="scroll" scroll-y="true" style="height: 100%">   
     <view wx:for="{{todos}}" wx:for-item="todo" wx:key="id" id="{{message.id}}">
         <view class="todo-container">
-            <view class="content">{{todo.content}}</view>
+            <view class="content" bindtap="search">{{todo.content}}</view>
         </view>
     </view>
     <view wx:for="{{recoms}}" wx:for-item="recom" wx:key="id" wx:for-index="key">
@@ -12,6 +12,7 @@
             <view class="content" bindtap="clicked" id="{{key}}">{{recom.content}}</view>
         </view>
     </view>
+    
   </scroll-view>
 
   <view class="input-panel">

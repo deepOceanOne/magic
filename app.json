@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/edit/edit",
     "pages/unlock/unlock",
-    "pages/datepicker/datepicker"
+    "pages/datepicker/datepicker",
+    "pages/nearby/nearby"
   ],
   "window": {
     "backgroundTextStyle": "light",

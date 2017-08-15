@@ -203,6 +203,13 @@ Page({
 
   },
 
+  search(e){
+    var index_clicked = (e.currentTarget.id);
+    var todo_array = this.data.todos;
+    url_open_with_keyword(todo_array[index_clicked].content);
+
+  },
+
   // 如果有人提出了意见，智能识别出来并进行上传记录
   isSuggestion(content){
     // make judge if the content is a piece of advice

@@ -8,6 +8,8 @@ var qcloud = require('../../vendor/qcloud-weapp-client-sdk/index');
 // 引入配置
 var config = require('../../config');
 var Bmob = require('../../libs/bmob.js');
+var app = getApp();
+// music search api
 
 
 // 显示按钮使用提示
@@ -55,6 +57,18 @@ Page({
           // audio_author
           author:""
         },
+        // music search 
+        musicList:[],
+        hasMusic:0,
+        userInfo: {},
+
+    },
+
+    // search music 
+    searchMusic: function (e) {
+
+     
+     
     },
 
     getTimeAndTodo(){
@@ -141,8 +155,15 @@ Page({
               wx.authorize({
                 scope: 'scope.userInfo',
                 success() {
-                  // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
-                  
+                  var context = this;
+                  //调用应用实例的方法获取全局数据
+                  app.getUserInfo(function (userInfo) {
+                    //更新数据
+                    console.log("userinfo : " + userInfo);
+                    context.setData({
+                      userInfo: userInfo
+                    });
+                  });
                 },
                 fail(){
                   console.log("failed to get user information...")
@@ -150,8 +171,9 @@ Page({
               })
             }
           }
-        })
+        });
 
+        this.searchMusic();
 
     },
 
@@ -175,6 +197,8 @@ Page({
           // request completed ... 
         },
       });
+
+      this.searchMusic();
 
     },  
 
@@ -334,5 +358,27 @@ Page({
 
     },
 
+    copytodo(e){
+      var index = (e.currentTarget.id);
+      console.log("index : "+e.currentTarget.id)
+      var todo_array = this.data.todos;
+      wx.setClipboardData({
+        data: todo_array[index].content,
+        success:function(res){
+          wx.showToast({
+            title: '已复制 : )',
+          });
+        },
+        fail:function(){
+          console.log("fail in copy");
+        }
+      });
+    },
+
+    nearby(){
+      wx.navigateTo({
+        url: '../nearby/nearby',
+      })
+    }
 
 });

@@ -7,10 +7,11 @@
     
  <scroll-view scroll-y="true" style="height: 40%">   
     <audio src="{{audio.src}}" poster="{{audio.poster}}"  name="{{audio.name}}" author="{{audio.author}}" controls="true"></audio>
+    <view class="nearby" bindtap="nearby">附近有什么好吃的</view>
     <view class="Todo">
-      <view wx:for="{{todos}}" wx:for-item="todo" wx:key="id" id="{{message.id}}">
+      <view wx:for="{{todos}}" wx:for-item="todo" wx:key="id" id="{{message.id}}" wx:for-index="key">
         <view class="todo-container">
-            <view class="content">{{todo.content}}</view>
+            <view class="content" bindlongtap="copytodo" id="{{key}}">{{todo.content}}</view>
         </view>
       </view>
     </view>  
