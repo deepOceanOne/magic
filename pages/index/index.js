@@ -376,8 +376,14 @@ Page({
     },
 
     nearby(){
+      /*
       wx.navigateTo({
         url: '../nearby/nearby',
+      });
+      */
+
+      wx.navigateTo({
+        url: '../browser/browser',
       })
     }
 

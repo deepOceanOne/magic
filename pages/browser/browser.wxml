@@ -1,0 +1,41 @@
+<!--browser.wxml-->
+
+
+    <view class="container">
+   
+            <view class="results_container">
+                <view class="dot_yellow"></view>
+                <view class="r_title">Colorado Springs, Colorado - Wikipedia, the free ...</view>
+                <view class="r_list_content">
+                    Colorado Springs is a Home Rule Municipality that is the county seat and the most populous municipality of El Paso County, Colorado, United States. Colorado ...
+                </view>
+                  <view class="links">https://coloradosprings.gov/</view>
+            </view>
+             <view class="drawing_line"></view>
+            <view class="results_container">
+                <view class="dot_green"></view>
+                <view class="r_title">Colorado Springs, Colorado - Wikipedia, the free ...</view>
+                <view class="r_list_content">
+                    Colorado Springs is a Home Rule Municipality that is the county seat and the most populous municipality of El Paso County, Colorado, United States. Colorado ...
+                </view>
+                <view class="links">https://coloradosprings.gov/</view>
+            </view>
+            <view class="drawing_line"></view>
+            <view class="results_container">
+                <view class="dot_blue"></view>
+                <view class="r_title">Colorado Springs, Colorado - Wikipedia, the free ...</view>
+                <view class="r_list_content">
+                    Colorado Springs is a Home Rule Municipality that is the county seat and the most populous municipality of El Paso County, Colorado, United States. Colorado ...
+                </view>
+                <view class="links">https://coloradosprings.gov/</view>
+            </view>
+            <view class="drawing_line"></view>
+            <view class="results_container">
+                <view class="dot_red"></view>
+                <view class="r_title">Colorado Springs | Colorado Springs City Government</view>
+                <view class="r_list_content">
+                    Colorado Springs is Colorado's second-largest city, and first in the hearts of many for its any family attractions, including Pikes Peak, Garden of the Gods and the ...
+                </view>
+                <view class="links">https://coloradosprings.gov/</view>
+            </view>
+    </view>

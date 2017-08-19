@@ -1,0 +1,94 @@
+/* browser.wxss */
+/* 
+* @Author: sunflyrid
+* @Date:   2016-01-03 18:17:23
+* @Last Modified by:   sunflyrid
+* @Last Modified time: 2016-01-04 23:50:37
+*/
+
+
+div {
+    border: 0px solid #eee;
+}
+
+.container {
+    margin: 15px 0px 0px 0px;
+    padding: 0;
+    height: 100%;
+    min-width: 940px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+
+
+.results_container {
+    margin-top: 100rpx;
+    overflow: hidden;
+}
+
+.r_title {
+    color: #368DC7;
+    font-size: 17px;
+    float: left;
+    margin-left: 18px;
+    line-height: 100%;
+    font-weight: bold;
+}
+
+.r_list_content {
+    margin: 20rpx 0px 0px 30px;
+    float: left;
+}
+
+.links {
+    font-size: 15px;
+    color: #cdd7dc;
+    float: left;
+    margin: 20rpx 100rpx 30rpx 70rpx;
+}
+
+.drawing_line {
+    width: 80%;
+    height: 1px;
+    background: #dee8ed;
+    margin: 0px 0px 30px 40px;
+}
+
+
+.dot_red {
+    width: 30rpx;
+    height: 30rpx;
+    border-radius: 100%;
+    background: #E11224;
+    float: left;
+    margin-top: 0rpx;
+}
+
+.dot_yellow {
+    width: 30rpx;
+    height: 30rpx;
+    border-radius: 100%;
+    float: left;
+    margin-top: 0rpx;
+    background: #FCCF36;
+}
+
+.dot_green {
+    width: 30rpx;
+    height: 30rpx;
+    border-radius: 100%;
+    float: left;
+    margin-top: 0rpx;
+    background: #229842;
+}
+
+.dot_blue {
+    width: 30rpx;
+    height: 30rpx;
+    border-radius: 100%;
+    float: left;
+    margin-top: 0rpx;
+    background: #2885C4;
+}
+
+

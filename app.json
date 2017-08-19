@@ -4,7 +4,8 @@
     "pages/edit/edit",
     "pages/unlock/unlock",
     "pages/datepicker/datepicker",
-    "pages/nearby/nearby"
+    "pages/nearby/nearby",
+    "pages/browser/browser"
   ],
   "window": {
     "backgroundTextStyle": "light",
