@@ -1,5 +1,5 @@
 
-<view class="edit-panal">
+<view class="edit-panal" >
 
   <scroll-view class="scroll" scroll-y="true" style="height: 100%">   
     <view wx:for="{{todos}}" wx:for-item="todo" wx:key="id" id="{{message.id}}">

@@ -385,6 +385,12 @@ Page({
       wx.navigateTo({
         url: '../browser/browser',
       })
+    },
+
+    timeby() {
+      wx.navigateTo({
+        url: '../history/history',
+      })
     }
 
 });

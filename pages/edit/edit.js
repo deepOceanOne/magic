@@ -1,5 +1,7 @@
 var Bmob = require('../../libs/bmob.js');
 var config = require('../../config');
+// for background image 
+// var imageUtil = require('../../utils/util.js');
 
 Page({
 
@@ -13,10 +15,27 @@ Page({
     todos: [{"content":'美好的一天开始啦～'}],
     msgUuid:{"next":0,},
     // recommendation array 
-    recoms: [],  
+    recoms: [],   
+    // for background rendering 
+    // background_image_src:"http://www.bing.com/az/hprichbg/rb/KingPhoto_ZH-CN13184031948_180x320.jpg",
+    // background_image_width:320,  // width after scale 
+    // background_image_height:180, // height after scale 
   },
 
+/*
+  loadbackgroundimage: function () {
+    var imageSize = imageUtil.imageUtil()
+    this.setData({
+      background_image_width: imageSize.imageWidth,
+      background_image_height: imageSize.imageHeight
+    })
+  },
+*/  
+
   onLoad: function (options) {
+
+    // initialize background image 
+    // this.loadbackgroundimage();
 
     Bmob.initialize(config.secret.bomb.appId, config.secret.bomb.apikey);
 
