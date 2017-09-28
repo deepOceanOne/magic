@@ -4,13 +4,15 @@
 
 // 引入 QCloud 小程序增强 SDK
 var qcloud = require('../../vendor/qcloud-weapp-client-sdk/index');
-
 // 引入配置
 var config = require('../../config');
 var Bmob = require('../../libs/bmob.js');
 var app = getApp();
 // music search api
 
+// netease music api start
+var bsurl = require('../../utils/bsurl.js');
+// netease music api end 
 
 // 显示按钮使用提示
 var showTips = text => wx.showToast({
@@ -71,6 +73,13 @@ Page({
      
     },
 
+    // netease music api start
+    neteasemusic: function () {
+      wx.redirectTo({
+        url: '../component/home/index'
+      });
+    },
+    // netease music api end 
     getTimeAndTodo(){
       // read the date and time 
       var d = new Date();
