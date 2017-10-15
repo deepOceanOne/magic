@@ -28,7 +28,7 @@ Page({
 		return {
 			title: this.data.share.title,
 			desc: this.data.share.des,
-			path: 'page/component/home/index?share=1&st=program&id=' + this.data.share.id
+			path: 'page/music/home/index?share=1&st=program&id=' + this.data.share.id
 		}
 	},
 	playmusic: function (that, id) {

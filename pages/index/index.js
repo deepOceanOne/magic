@@ -76,7 +76,7 @@ Page({
     // netease music api start
     neteasemusic: function () {
       wx.redirectTo({
-        url: '../component/home/index'
+        url: '../music/home/index'
       });
     },
     // netease music api end 
@@ -385,15 +385,16 @@ Page({
     },
 
     nearby(){
-      /*
+      
       wx.navigateTo({
         url: '../nearby/nearby',
       });
-      */
-
+      
+      /*
       wx.navigateTo({
         url: '../browser/browser',
       })
+      */
     },
 
     timeby() {

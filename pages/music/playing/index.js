@@ -32,7 +32,7 @@ Page({
     return {
       title: this.data.share.title,
       desc: this.data.share.des,
-      path: 'page/component/home/index?share=1&st=playing&id=' + this.data.share.id + '&br=' + this.data.share.br
+      path: 'page/music/home/index?share=1&st=playing&id=' + this.data.share.id + '&br=' + this.data.share.br
     }
   },
   playmusic: function (that, id, br) {

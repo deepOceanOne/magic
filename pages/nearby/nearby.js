@@ -19,8 +19,8 @@ Page({
     var that = this;
     var myAmapFun = new amapFile.AMapWX({ key: config.secret.gaode.key });
     myAmapFun.getPoiAround({
-      iconPathSelected: '../../img/marker_checked.jpg',
-      iconPath: '../../img/marker.jpg',
+      iconPathSelected: '../../image/marker_checked.jpg',
+      iconPath: '../../image/marker.jpg',
       success: function (data) {
         markersData = data.markers;
         that.setData({
@@ -53,9 +53,9 @@ Page({
     var markers = [];
     for (var j = 0; j < data.length; j++) {
       if (j == i) {
-        data[j].iconPath = "../../img/marker_checked.jpg";
+        data[j].iconPath = "../../image/marker_checked.jpg";
       } else {
-        data[j].iconPath = "../../img/marker.jpg";
+        data[j].iconPath = "../../image/marker.jpg";
       }
       markers.push(data[j]);
     }

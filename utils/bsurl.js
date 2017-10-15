@@ -1,1 +1,1 @@
-module.exports="http://todaypro.leanapp.cn/v1/"
+module.exports="https://todaypro.leanapp.cn/v1/"

@@ -9,9 +9,6 @@
   <view class="tab-item  {{playlist.idx==tabidx?'tbi-cur':''}}" bindtap="switchtab" data-t="1">
     <text class="tbi-text">歌单</text>
   </view>
-  <view class="tab-item  {{djlist.idx==tabidx?'tbi-cur':''}}" bindtap="switchtab" data-t="2">
-    <text class="tbi-text">主播电台</text>
-  </view>
   <view class="tab-item  {{sort.idx==tabidx?'tbi-cur':''}}" bindtap="switchtab" data-t="3">
     <text class="tbi-text">排行榜</text>
   </view>
@@ -95,43 +92,6 @@
         </view>
       </view>
 
-      <!--mv-->
-      <view class="st_title">
-        <image width="30" mode="widthFix" src="../../../image/cm2_discover_icn_mv@2x.png" />推荐Mv
-        <view class="rbtn" >更多></view>
-      </view>
-      <view class='flex-boxlist mvs flex-two'>
-        <view wx:for="{{rec.re[2]}}" class="tl_cnt" wx:for-item="re" wx:key="{{re}}">
-          <navigator url="../mv/index?id={{re.id}}">
-            <view class="cover">
-              <view class="img_playcount">
-                <template is="image" data="{{src:'../../../image/video.png',width:28,height:20}}" />{{re.playCount}}</view>
-              <image src="{{re.picUrl}}?param=320y180" class="mv_cover" />
-            </view>
-            <view class="tl_info">
-              <view>{{re.name}}</view>
-              <view class="tli_des">{{re.artistName}}</view>
-            </view>
-          </navigator>
-        </view>
-      </view>
-
-      <!--dj-->
-      <view class="st_title">
-        <image width="30" mode="widthFix" src="../../../image/cm2_discover_icn_radio@2x.png" />主播电台
-        <view class="rbtn"  bindtap="switchtab" data-t="2">更多></view>
-      </view>
-      <view class='flex-boxlist'>
-        <view class="tl_cnt" wx:for-items="{{rec.re[3]}}" wx:key="{{item.id}}">
-          <navigator url="../program/index?pid={{item.id}}">
-            <view class="cover">
-              <image src="{{item.picUrl}}?param=200y200" class="music_cover" />
-            </view>
-            <text class="name">{{item.name}}</text>
-          </navigator>
-        </view>
-      </view>
-
       <!--end -->
     </view>
   </view>
@@ -158,63 +118,6 @@
       </view>
     </block>
     <template wx:if="{{!playlist.loading||playlist.list.more}}" is="loading" />
-  </view>
-
-  <!-- 主播电台-->
-  <view class="tab_cnt" hidden="{{tabidx!=2}}">
-    <block wx:if="{{djcate.loading}}">
-      <swiper indicator-dots="true" circular="true">
-        <swiper-item wx:for-items="{{[1,2,3]}}" class="djcatewrap">
-          <view bindtap="djradiotype" wx:if="{{(idx<item*8)&&(idx>=(item-1)*8)}}" class="djcatelist" data-djtype="{{re.id}}" wx:for-items="{{djcate.categories}}" wx:for-item="re" wx:for-index="idx">
-            <image src="{{re.pic56x56Url}}" class="slide-image" width="56" height="56" />
-            <view>{{re.name}}</view>
-          </view>
-        </swiper-item>
-      </swiper>
-      <view class="listheader">{{djrecs.rec_p.name}}</view>
-      <view wx:for="{{djrecs.rec_p.programs}}" class="playlist" wx:for-item="re" wx:key="{{re}}">
-        <navigator url="../program/index?id={{re.mainSong.id}}&pid={{re.id}}">
-          <view class="flexlist  flex-image">
-            <view class="flexleft fl-image">
-              <image src="{{re.coverUrl}}?param=100y100" class="album_cover" />
-            </view>
-            <view class="flexlist">
-              <view class="flexmain">
-                <view>{{re.name}}</view>
-                <view class="relistdes">{{re.reason}}</view>
-              </view>
-            </view>
-          </view>
-        </navigator>
-      </view>
-      <view class="listheader">{{djrecs.rec_d.name}}</view>
-      <view class='flex-boxlist'>
-        <view class="tl_cnt cateplaylist" wx:for-items="{{djrecs.rec_d.djRadios}}" wx:for-index="idx" wx:if="{{idx<6}}" wx:key="{{item.id}}">
-          <navigator url="../djradio/index?id={{item.id}}">
-            <view class="cover">
-              <image src="{{item.picUrl}}?param=200y200" class="music_cover" />
-            </view>
-            <text class="name">{{item.copywriter}}</text>
-          </navigator>
-        </view>
-      </view>
-      <view class="listheader">热门电台</view>
-      <view class='flex-boxlist flex-two'>
-        <view class="tl_cnt cateplaylist" wx:for-items="{{djlist.list.djRadios}}" wx:key="{{item.id}}">
-          <navigator url="../djradio/index?id={{item.id}}">
-            <view class="cover">
-              <image src="{{item.picUrl}}?param=200y200" class="music_cover" />
-              <text>{{item.creator.nickname}}</text>
-              <view class="img_playcount">
-                <template is="image" data="{{src:'../../../image/cm2_list_icn_subscribe@2x.png',width:24}}" />{{item.subCount}}订阅</view>
-            </view>
-            <text class="name">{{item.name}}</text>
-          </navigator>
-        </view>
-      </view>
-      <template wx:if="{{djlist.loading&&djlist.list.hasMore}}" is="loading" />
-    </block>
-    <template wx:else is="loading" />
   </view>
 
   <!--排行榜 -->

@@ -48,7 +48,7 @@ Page({
         return {
             title: this.data.music.name,
             desc: this.data.music.artists[0].name,
-            path: 'page/component/home/index?share=1&st=playing&id=' + this.data.music.id
+            path: 'page/music/home/index?share=1&st=playing&id=' + this.data.music.id
         }
     },
     loadlrc: function () {

@@ -90,7 +90,7 @@ Page({
     return {
       title: this.data.share.title,
       desc: this.data.share.des,
-      path: 'page/component/playing/index?id=' + this.data.share.id
+      path: 'page/music/playing/index?id=' + this.data.share.id
     }
   },
   onShow: function () {
