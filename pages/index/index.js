@@ -66,11 +66,28 @@ Page({
 
     },
 
-    // search music 
-    searchMusic: function (e) {
+    // search further todos during month 
+    getRandomNum: function(Min, Max)
+    {   
+      var Range = Max - Min;   
+      var Rand = Math.random();   
+      return(Min + Math.round(Rand * Range));
+    },
 
+    searchFurtherTodos: function (month,date) {
+      // 随机抽取部分本月的todos，列在这里
+      var further_todos = [];
+      var further_todo = [];
+      for(var i=0;i<(30-date)/3;i++){
+        var further_date = this.getRandomNum(date,30);
+        further_todo = wx.getStorageSync(month + '-' + (further_date));
+        // 只推送抽取天的第一个todo
+        if (further_todo.length>1){
+          further_todos.push(further_todo[1])
+        }
+      }
      
-     
+      return further_todos;    
     },
 
     // netease music api start
@@ -135,6 +152,8 @@ Page({
       // console.log("date is : "+date);
 
       var todosfromstorage = wx.getStorageSync(month + '-' + (date));
+      var further_todos = this.searchFurtherTodos(month,date);
+      todosfromstorage = todosfromstorage.concat(further_todos);
       if (todosfromstorage) {
         this.setData({ todos_local: todosfromstorage });
         // make sure local data is first to be seen 
@@ -182,7 +201,7 @@ Page({
           }
         });
 
-        this.searchMusic();
+        this.searchFurtherTodos();
 
     },
 
@@ -191,6 +210,7 @@ Page({
       this.getTodoFromFriends(this.data.unlock_code);
 
       // get audio src 
+      /*
       var audio_array = ["src","poster","name","author"];
       var context = this;
       wx.request({
@@ -206,8 +226,8 @@ Page({
           // request completed ... 
         },
       });
-
-      this.searchMusic();
+      */
+      this.searchFurtherTodos();
 
     },  
 

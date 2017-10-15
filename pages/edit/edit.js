@@ -134,7 +134,8 @@ Page({
     if (!this.data.msgUuid.next) {
       this.data.msgUuid.next = 0;
     }
-    return 'msg-' + (++this.data.msgUuid.next);
+    this.setData({ msgUuid: { "next": ++this.data.msgUuid.next} });
+    return 'msg-' + (this.data.msgUuid.next);
   },
 
   /**

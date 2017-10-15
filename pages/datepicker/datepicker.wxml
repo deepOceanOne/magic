@@ -10,12 +10,12 @@
     </view>
   </view>
   <view class="week-display flex">
-      <view wx:for="{{week}}" class="week-cell {{item.class}}">{{item.value}}</view>
+      <view wx:for="{{week}}" class="week-cell {{item.class}}" wx:key="id">{{item.value}}</view>
     </view>
   <view class="date-picker">
     <view class="flex">
-      <view wx:for="{{emptyGrids}}" class="date-cell"></view>
-      <view wx:for="{{days}}" class="date-cell" bindtap="selectDate" data-selected="{{[currYear, currMonth, item.value]}}">
+      <view wx:for="{{emptyGrids}}" class="date-cell" wx:key="id"></view>
+      <view wx:for="{{days}}" class="date-cell" bindtap="selectDate" data-selected="{{[currYear, currMonth, item.value]}}" wx:key="id">
         <view class="{{item.class}}{{selected == item.value ? ' selected': ''}}" data-selected="{{[currYear, currMonth, item.value]}}">{{item.value}}</view>
       </view>
     </view>

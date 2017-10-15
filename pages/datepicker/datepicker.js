@@ -7,13 +7,13 @@ const dayInWeek = date.getDay();
 let selected = [year, month, dayInMonth];
 
 const week = [ 
-  { 'value': '周一', 'class': '' },
-  { 'value': '周二', 'class': '' },
-  { 'value': '周三', 'class': '' },
-  { 'value': '周四', 'class': '' },
-  { 'value': '周五', 'class': '' },
-  { 'value': '周六', 'class': 'weekend' },
-  { 'value': '周日', 'class': 'weekend' },
+  {'id':1, 'value': '周一', 'class': '' },
+  {'id':2, 'value': '周二', 'class': '' },
+  {'id':3, 'value': '周三', 'class': '' },
+  {'id':4, 'value': '周四', 'class': '' },
+  {'id':5, 'value': '周五', 'class': '' },
+  {'id':6, 'value': '周六', 'class': 'weekend' },
+  {'id':7, 'value': '周日', 'class': 'weekend' },
 ];
 
 let isLeapYear = function (y) {
@@ -61,6 +61,7 @@ let calDays = function (y, m) {
     let weekend = isWeekend(emptyGrids, i) ? 'weekend' : '';
     let todaySelected = ifToday && isSelected ? 'today-selected' : '';
     let day = {
+      'id':i-1,
       'value': i,
       'class': `date-bg ${weekend} ${today} ${select} ${todaySelected}`,
     }
