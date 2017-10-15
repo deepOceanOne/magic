@@ -6,10 +6,10 @@
     </view> 
     
  <scroll-view scroll-y="true" style="height: 40%">   
-    <audio src="{{audio.src}}" poster="{{audio.poster}}"  name="{{audio.name}}" author="{{audio.author}}" controls="true"></audio>
+    <!--audio src="{{audio.src}}" poster="{{audio.poster}}"  name="{{audio.name}}" author="{{audio.author}}" controls="true"></audio-->
     <view class="nearby" bindtap="nearby">附近有什么好吃的</view>
-    <view class="timeby" bindtap="timeby">历史上今天发生了点什么</view>
-    <view class="neteasemusic" bindtap="neteasemusic">制造一些噪声</view>
+    <!--view class="timeby" bindtap="timeby">历史上今天发生了点什么</view-->
+    <view class="neteasemusic" bindtap="neteasemusic"> let's make some noice ! </view>
     <view class="Todo">
       <view wx:for="{{todos}}" wx:for-item="todo" wx:key="id" id="{{message.id}}" wx:for-index="key">
         <view class="todo-container">

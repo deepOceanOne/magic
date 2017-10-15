@@ -31,14 +31,6 @@
     <view wx:else>
       <view id="rec_nav">
         <view>
-          <navigator url="../fm/index">
-            <view class="recn_ico">
-              <image src="../../../image/cm2_discover_icn_fm-ip6@2x.png"></image>
-            </view>
-            私人FM
-          </navigator>
-        </view>
-        <view>
           <navigator url="../recsongs/index">
             <view class="recn_ico">{{thisday}}</view>
             每日歌曲推荐

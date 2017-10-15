@@ -3,6 +3,8 @@ var common = require('../../../utils/util.js');
 var async = require("../../../utils/async.js");
 var nt = require("../../../utils/nt.js")
 var app = getApp();
+var config = require('../../../config');
+
 Page({
     data: {
         rec: {
@@ -80,10 +82,17 @@ Page({
             playtype: app.globalData.playtype,
         })
         if (!wx.getStorageSync('user')) {
+            // preset music info 
+            var netease_data = config.cookie.netease_data;
+            wx.setStorageSync('user', netease_data);
+            // preset music info end 
+
+            /*
             wx.redirectTo({
                 url: '../login/index'
             });
             return;
+            */
         }
         !this.data.rec.loading && this.init();
     },
