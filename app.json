@@ -24,7 +24,17 @@
     "pages/music/cloud/index",
     "pages/music/program/index",
     "pages/music/simi/index",
-    "pages/music/new/index"
+    "pages/music/new/index",
+    "pages/fm/find/find",
+    "pages/fm/detail/detail",
+    "pages/fm/memberDetail/memberDetail",
+    "pages/fm/index/index",
+    "pages/qq/index/index",
+    "pages/qq/musiclist/musiclist",
+    "pages/qq/play/play",
+    "pages/qq/toplist/toplist",
+    "pages/douban/index/index",
+    "pages/douban/book/book"
   ],
   "window": {
     "backgroundTextStyle": "light",

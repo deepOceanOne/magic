@@ -132,7 +132,16 @@ Page({
     app.shuffleplay(shuffle);
   },
   songheart: function () {
-    common.songheart(this, app, 0, this.data.music.st)
+    common.songheart(this, app, 0, this.data.music.st);
+    // upload to cloud side in leancloud 
+    var posfix = "/musicstarred";
+    wx.request({
+      url: "https://todaypro.leanapp.cn/v2" + posfix,
+      complete: function (res) {
+        console.log("request complete.. ")
+      }
+    });
+    // end of the upload
   },
   pospl:function(e){
     //播放列表中单曲播放

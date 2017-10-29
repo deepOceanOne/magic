@@ -31,6 +31,9 @@ Page({
 					art: res.data,
 					loading: true
 				});
+
+        console.log("artist name: "+res.data.artist.name)
+
 				wx.setNavigationBarTitle({
 					title: res.data.artist.name
 				})

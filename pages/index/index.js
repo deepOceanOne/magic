@@ -415,6 +415,16 @@ Page({
         url: '../browser/browser',
       })
       */
+      /*
+      wx.navigateTo({
+        url: '../fm/find/find',
+      })
+      */
+      /*
+      wx.navigateTo({
+        url: '../qq/index/index',
+      })
+      */
     },
 
     timeby() {
